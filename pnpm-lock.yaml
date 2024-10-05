@@ -16,16 +16,13 @@ dependencies:
     version: 1.2.2
   '@langchain/core':
     specifier: ^0.3.7
-    version: 0.3.7(openai@4.67.1)
+    version: 0.3.7
   '@langchain/openai':
     specifier: ^0.3.5
     version: 0.3.5(@langchain/core@0.3.7)
   dotenv:
     specifier: ^16.4.5
     version: 16.4.5
-  openai:
-    specifier: ^4.67.1
-    version: 4.67.1(zod@3.23.8)
   zod:
     specifier: ^3.23.8
     version: 3.23.8
@@ -690,7 +687,7 @@ packages:
     dev: false
     optional: true
 
-  /@langchain/core@0.3.7(openai@4.67.1):
+  /@langchain/core@0.3.7:
     resolution: {integrity: sha512-6wsnEtw5GlhmBhoLfw/g8Hrp09BNwQwDLXyuv3GyK+ay4/3H3YuhAphqQLO4HNphuZIZKlW9ihSrqdCMvvbvZQ==}
     engines: {node: '>=18'}
     dependencies:
@@ -698,7 +695,7 @@ packages:
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.14
-      langsmith: 0.1.61(openai@4.67.1)
+      langsmith: 0.1.61
       mustache: 4.2.0
       p-queue: 6.6.2
       p-retry: 4.6.2
@@ -715,7 +712,7 @@ packages:
     peerDependencies:
       '@langchain/core': '>=0.2.26 <0.4.0'
     dependencies:
-      '@langchain/core': 0.3.7(openai@4.67.1)
+      '@langchain/core': 0.3.7
       js-tiktoken: 1.0.14
       openai: 4.67.1(zod@3.23.8)
       zod: 3.23.8
@@ -2275,7 +2272,7 @@ packages:
       json-buffer: 3.0.1
     dev: true
 
-  /langsmith@0.1.61(openai@4.67.1):
+  /langsmith@0.1.61:
     resolution: {integrity: sha512-XQE4KPScwPmdaT0mWDzhNxj9gvqXUR+C7urLA0QFi27XeoQdm17eYpudenn4wxC0gIyUJutQCyuYJpfwlT5JnQ==}
     peerDependencies:
       openai: '*'
@@ -2285,7 +2282,6 @@ packages:
     dependencies:
       '@types/uuid': 10.0.0
       commander: 10.0.1
-      openai: 4.67.1(zod@3.23.8)
       p-queue: 6.6.2
       p-retry: 4.6.2
       semver: 7.6.3

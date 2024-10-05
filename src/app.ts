@@ -12,6 +12,7 @@ import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants";
 import { typing } from "./utils/presence";
 import hiFlow from "./flows/hi";
 import mediaFlow from "./flows/media";
+import { getIntention } from "./ai/catch-intention";
 
 /** Порт, на котором будет запущен сервер */
 const PORT = process.env.PORT ?? 3008;
@@ -83,7 +84,20 @@ const welcomeFlow = addKeyword<BaileysProvider, MemoryDB>(EVENTS.WELCOME).addAct
   }
 );
 
+const intentionFlow = addKeyword(EVENTS.WELCOME)
+    .addAction(async (ctx, { gotoFlow }) => {
+        const intention = await getIntention(ctx.body)
+        console.log(intention)
 
+        if (intention === 'greeting') {
+            console.log('intention greeting')
+        } else if (intention === 'sales') {
+            console.log('intention sales')
+        } else {
+            console.log('intention unknown')
+        }    
+        
+    })
 
 
 
@@ -99,7 +113,7 @@ const main = async () => {
    * Поток бота
    * @type {import('@builderbot/bot').Flow<BaileysProvider, MemoryDB>}
    */
-  const adapterFlow = createFlow([welcomeFlow, hiFlow, mediaFlow ]);
+  const adapterFlow = createFlow([ hiFlow, mediaFlow, intentionFlow]);
 
   /**
    * Провайдер сервисов обмена сообщениями
