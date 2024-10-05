@@ -10,9 +10,9 @@ import { MemoryDB } from "@builderbot/bot";
 import { BaileysProvider } from "@builderbot/provider-baileys";
 import { toAsk, httpInject } from "@builderbot-plugins/openai-assistants";
 import { typing } from "./utils/presence";
-import hiFlow from "./flows/hi";
-import mediaFlow from "./flows/media";
 import { getIntention } from "./ai/catch-intention";
+import greetingFlow from "./flows/greeting";
+import mediaFlow from "./flows/media";
 
 /** Порт, на котором будет запущен сервер */
 const PORT = process.env.PORT ?? 3008;
@@ -91,6 +91,7 @@ const intentionFlow = addKeyword(EVENTS.WELCOME)
 
         if (intention === 'greeting') {
             console.log('intention greeting')
+            return gotoFlow(greetingFlow)
         } else if (intention === 'sales') {
             console.log('intention sales')
         } else if (intention === 'help') {
@@ -115,7 +116,7 @@ const main = async () => {
    * Поток бота
    * @type {import('@builderbot/bot').Flow<BaileysProvider, MemoryDB>}
    */
-  const adapterFlow = createFlow([ hiFlow, mediaFlow, intentionFlow]);
+  const adapterFlow = createFlow([ mediaFlow, intentionFlow, greetingFlow]);
 
   /**
    * Провайдер сервисов обмена сообщениями
