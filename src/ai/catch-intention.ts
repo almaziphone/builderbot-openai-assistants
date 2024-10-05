@@ -19,7 +19,7 @@ export const PROMPT_STRUCT = ChatPromptTemplate.fromMessages([
 
 const catchIntention = z.object(
     {
-        intention: z.enum(['UNKNOWN', 'SALES', 'GREETING', 'CLOSURE'])
+        intention: z.enum(['UNKNOWN', 'SALES', 'GREETING', 'CLOSURE', 'HELP'])
             .describe('Categorize the following conversation and decide what the intention is')
     }
 ).describe('Given the following products, you should structure it in the best way, do not alter or edit anything');

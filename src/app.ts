@@ -93,6 +93,8 @@ const intentionFlow = addKeyword(EVENTS.WELCOME)
             console.log('intention greeting')
         } else if (intention === 'sales') {
             console.log('intention sales')
+        } else if (intention === 'help') {
+            console.log('intention help')
         } else {
             console.log('intention unknown')
         }    
