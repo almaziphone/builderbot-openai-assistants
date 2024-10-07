@@ -13,33 +13,32 @@ import { typing } from "./utils/presence";
 import { getIntention } from "./ai/catch-intention";
 import greetingFlow from "./flows/greeting";
 import mediaFlow from "./flows/media";
-import { IDatabase, adapterDB } from './base/database';
-
-
+import { IDatabase, adapterDB } from "./base/database";
 
 /** Порт, на котором будет запущен сервер */
 const PORT = process.env.PORT ?? 3008;
 /** ID ассистента OpenAI */
 const ASSISTANT_ID = process.env.ASSISTANT_ID ?? "";
+const ASSISTANT_ID_MEM = process.env.ASSISTANT_ID_MEM ?? "";
 const userQueues = new Map();
 const userLocks = new Map(); // Новый механизм блокировки
 
-/**
- * Функция для обработки сообщения пользователя, отправляя его в API OpenAI
- * и отправляя ответ обратно пользователю.
- */
-const processUserMessage = async (ctx: { body: string; }, { flowDynamic, state, provider }: { flowDynamic: any; state: any; provider: any; }) => {
+const processUserMessage = async (
+  ctx: { body: string },
+  {
+    flowDynamic,
+    state,
+    provider,
+  }: { flowDynamic: any; state: any; provider: any }
+) => {
   await typing(ctx, provider);
-  const response = await toAsk(ASSISTANT_ID, ctx.body, state);
+  const response = await toAsk(ASSISTANT_ID_MEM, ctx.body, state);
 
   // Разделяем ответ на части и отправляем их последовательно
   const chunks = response.split(/\n\n+/);
-  console.log(chunks)
   for (const chunk of chunks) {
     // const cleanedChunk = chunk.trim().replace(/【.*?】[ ] /g, "");
     const cleanedChunk = chunk.trim().replace(/【.*?】 ?/g, "");
-
-    // const cleanedChunk = chunk.trim();
     await flowDynamic([{ body: cleanedChunk }]);
   }
 };
@@ -73,53 +72,57 @@ const handleQueue = async (userId: string) => {
   userQueues.delete(userId); // Удаляем очередь после обработки всех сообщений
 };
 
-const welcomeFlow = addKeyword<BaileysProvider, IDatabase>(EVENTS.ACTION).addAction(
-  async (ctx, { flowDynamic, state, provider }) => {
-    const userId = ctx.from; // Используем ID пользователя для создания уникальной очереди для каждого пользователя
+const welcomeFlow = addKeyword<BaileysProvider, IDatabase>(
+  EVENTS.ACTION
+).addAction(async (ctx, { flowDynamic, state, provider }) => {
+  const userId = ctx.from; // Используем ID пользователя для создания уникальной очереди для каждого пользователя
 
-    if (!userQueues.has(userId)) {
-      userQueues.set(userId, []);
-    }
+  if (!userQueues.has(userId)) {
+    userQueues.set(userId, []);
+  }
 
-    const queue = userQueues.get(userId);
-    queue.push({ ctx, flowDynamic, state, provider });
+  const queue = userQueues.get(userId);
+  queue.push({ ctx, flowDynamic, state, provider });
 
-    // Если это единственное сообщение в очереди, обрабатываем его немедленно
-    if (!userLocks.get(userId) && queue.length === 1) {
-      await handleQueue(userId);
+  // Если это единственное сообщение в очереди, обрабатываем его немедленно
+  if (!userLocks.get(userId) && queue.length === 1) {
+    await handleQueue(userId);
+  }
+});
+
+const intentionFlow = addKeyword(EVENTS.WELCOME).addAction(
+  async (ctx, { gotoFlow, provider }) => {
+    const intention = await getIntention(ctx.body);
+    console.log(intention);
+
+    if (intention === "greeting") {
+      console.log("intention greeting");
+      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Приветствие!");
+      return gotoFlow(greetingFlow);
+    } else if (intention === "sales") {
+      console.log("intention sales");
+      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Продажа!");
+    // } else if (intention === "remember") {
+    //   console.log("intention remember");
+      // await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Запомни!");
+    } else if (intention === "help") {
+      console.log("intention help");
+      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Помощь!");
+      return gotoFlow(welcomeFlow);
+    } else {
+      console.log("intention unknown");
+      return gotoFlow(welcomeFlow);
     }
   }
 );
 
-const intentionFlow = addKeyword(EVENTS.WELCOME)
-    .addAction(async (ctx, { gotoFlow , provider}) => {
-        const intention = await getIntention(ctx.body)
-        console.log(intention)
-
-        if (intention === 'greeting') {
-            console.log('intention greeting')
-            await provider.sendText(`${ctx.from}@s.whatsapp.net`, 'Приветствие!')
-            return gotoFlow(greetingFlow)
-        } else if (intention === 'sales') {
-            console.log('intention sales')
-            await provider.sendText(`${ctx.from}@s.whatsapp.net`, 'Продажа!')
-        } else if (intention === 'help') {
-            console.log('intention help')
-            await provider.sendText(`${ctx.from}@s.whatsapp.net`, 'Помощь!')
-            return gotoFlow(welcomeFlow)
-        } else {
-            console.log('intention unknown')
-            return gotoFlow(welcomeFlow)
-        }    
-        
-    })
-
-
-
-
-
 const main = async () => {
-  const adapterFlow = createFlow([ mediaFlow, intentionFlow, greetingFlow, welcomeFlow]);
+  const adapterFlow = createFlow([
+    mediaFlow,
+    intentionFlow,
+    greetingFlow,
+    welcomeFlow,
+  ]);
   const adapterProvider = createProvider(BaileysProvider, {
     groupsIgnore: true,
     readStatus: false,
