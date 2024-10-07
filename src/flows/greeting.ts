@@ -1,10 +1,12 @@
-import { EVENTS, MemoryDB } from "@builderbot/bot";
+import { EVENTS } from "@builderbot/bot";
 import { BaileysProvider } from "@builderbot/provider-baileys";
 import { addKeyword } from "@builderbot/bot";
 import { typing } from "~/utils/presence";
 import { join } from "node:path";
+import { IDatabase } from '../base/database';
 
-const greetingFlow = addKeyword<BaileysProvider, MemoryDB>([
+
+const greetingFlow = addKeyword<BaileysProvider, IDatabase>([
   EVENTS.ACTION
 ])
 .addAction(async (ctx, { flowDynamic, provider }) => {

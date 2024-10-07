@@ -1,10 +1,11 @@
-import { MemoryDB } from "@builderbot/bot";
 import { BaileysProvider } from "@builderbot/provider-baileys";
 import { addKeyword } from "@builderbot/bot";
 import { typing } from "~/utils/presence";
 import { join } from "node:path";
+import { IDatabase } from '../base/database';
 
-const photoProfileFlow = addKeyword<BaileysProvider, MemoryDB>([
+
+const photoProfileFlow = addKeyword<BaileysProvider, IDatabase>([
   "photoProfile",
 ])
   .addAction(async (ctx, { provider, flowDynamic, fallBack, endFlow }) => {

@@ -4,7 +4,8 @@ import {
   addKeyword,
 } from "@builderbot/bot";
 import { typing } from "~/utils/presence";
-const mediaFlow = addKeyword<BaileysProvider, MemoryDB>(
+import { IDatabase } from '../base/database';
+const mediaFlow = addKeyword<BaileysProvider, IDatabase>(
   EVENTS.MEDIA
 ).addAnswer("Здравствуйте!")
 .addAction(async (ctx, {  provider }) => {
