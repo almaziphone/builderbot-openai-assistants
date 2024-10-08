@@ -14,6 +14,7 @@ import { getIntention } from "./ai/catch-intention";
 import greetingFlow from "./flows/greeting";
 import mediaFlow from "./flows/media";
 import { IDatabase, adapterDB } from "./base/database";
+// import { IDatabase, adapterDB } from "./base/json-database";
 
 /** Порт, на котором будет запущен сервер */
 const PORT = process.env.PORT ?? 3008;

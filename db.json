@@ -1,0 +1,295 @@
+[
+  {
+    "ref": "c4da79c3-6142-4014-8665-e42328720771",
+    "keyword": "0a22f04147712002fd930833c94f23ff",
+    "answer": "какое чило",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "be39b007fcce6cfe4a5f25075d019218"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "d1c8a7f4-dee1-4d24-9caa-2b876ae9cfcf",
+    "keyword": null,
+    "answer": "Мне нужно немного больше информации, чтобы ответить на ваш вопрос. Пожалуйста, уточните, о каком числе идет речь.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "79129080003",
+    "refSerialize": "220ca4ac371208491e493826708840e1"
+  },
+  {
+    "ref": "b81fd81d-504a-48af-a59b-f9ee07954509",
+    "keyword": "5e32c38fd4f41ae112f29592480807ea",
+    "answer": "rfre. wbahe ns pfgjvybk",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "aa553365b85af9c51ed2efe261430010"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "c6187b0f-1fcf-4df3-94bd-c8777bde3807",
+    "keyword": null,
+    "answer": "Извините, я не могу понять ваше сообщение. Пожалуйста, проверьте вашу клавиатуру и отправьте сообщение снова.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "79129080003",
+    "refSerialize": "1094d8a7077728337376cdf609f0702b"
+  },
+  {
+    "ref": "8108b772-0b70-4ba7-8bf5-f605458c2071",
+    "keyword": "5e32c38fd4f41ae112f29592480807ea",
+    "answer": "какую цифру ты запомнил",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "c777902be02af5f95b55375fa2e61c97"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "1fa27ef4-8ee8-4cb2-a002-8434cd0f7fc1",
+    "keyword": null,
+    "answer": "Я не могу запомнить или хранить информацию о конкретных цифрах или данных, которые были представлены в предыдущих сообщениях. Пожалуйста, уточните, о какой именно цифре идет речь, и я постараюсь помочь вам.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "79129080003",
+    "refSerialize": "14c499cd9959c7e9bcca9eb021e76056"
+  },
+  {
+    "ref": "432bef02-7a0d-403f-ad28-1ee75b3180d2",
+    "keyword": "5e32c38fd4f41ae112f29592480807ea",
+    "answer": "Запо",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "c9afa04699b643f4802b29220300c5bf"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "e917b01b-0e3e-45c9-a5f1-f58d631636d9",
+    "keyword": "5e32c38fd4f41ae112f29592480807ea",
+    "answer": "запомни цифру 11111",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "251ec95400d9d0c168691b1cf323a06f"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "5c70c3e4-7ded-423f-811d-df359086bd83",
+    "keyword": null,
+    "answer": "Я не запоминаю информацию, но могу использовать предоставленные данные в рамках текущей сессии. Если у вас есть конкретный вопрос или задача, в которой нужна цифра 11111, пожалуйста, дайте знать, и я помогу вам.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "79129080003",
+    "refSerialize": "40057ca835ea97a2735546d17a45851c"
+  },
+  {
+    "ref": "d96352c2-663b-49bf-aa23-9a6dfb47e756",
+    "keyword": "5e32c38fd4f41ae112f29592480807ea",
+    "answer": "как сохранить сессию",
+    "options": {},
+    "from": "79129080003",
+    "refSerialize": "bf4f742470f5b4b58521a4dbdd659a50"
+  },
+  {
+    "ref": "ans_492971b3-0ef1-4d7b-acb7-d748872aefec",
+    "keyword": "key_b2f1b98d-333f-47d0-91f2-c2e838beaa1d",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "12d12af842f89a1525c6581c25743c23",
+    "from": "79129080003"
+  },
+  {
+    "ref": "ans_a012cba8-08c5-4010-8250-70f85572442e",
+    "keyword": "key_4cc8a758-3304-48ea-a1ff-1531614bcb66",
+    "answer": "__call_action__",
+    "options": {
+      "buttons": [],
+      "capture": false,
+      "delay": 0,
+      "nested": [],
+      "keyword": {},
+      "callback": true
+    },
+    "refSerialize": "5e32c38fd4f41ae112f29592480807ea",
+    "from": "79129080003"
+  },
+  {
+    "ref": "3bacf3e0-0cd8-4214-b088-fde81b979396",
+    "keyword": null,
+    "answer": "К сожалению, я не могу сохранить сессии или данные между сессиями. Однако вы можете копировать или записывать важную информацию вручную для дальнейшего использования. Если нужно, я могу помочь вам с рекомендациями или инструментами для сохранения и управления данными.",
+    "options": {
+      "media": null,
+      "buttons": [],
+      "capture": false,
+      "delay": 0
+    },
+    "from": "79129080003",
+    "refSerialize": "44a0485cc2441931b652cba641b1057a"
+  }
+]
