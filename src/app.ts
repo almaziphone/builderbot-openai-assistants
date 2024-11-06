@@ -20,12 +20,12 @@ import { IDatabase, adapterDB } from "./base/database";
 const PORT = process.env.PORT ?? 3008;
 /** ID ассистента OpenAI */
 const ASSISTANT_ID = process.env.ASSISTANT_ID ?? "";
-const ASSISTANT_ID_MEM = process.env.ASSISTANT_ID_MEM ?? "";
+const ASSISTANT_ID_HELP = process.env.ASSISTANT_ID_HELP ?? "";
 const userQueues = new Map();
 const userLocks = new Map(); // Новый механизм блокировки
 
 const processUserMessage = async (
-  ctx: { body: string },
+  ctx: { body: string; intention: string },
   {
     flowDynamic,
     state,
@@ -33,7 +33,12 @@ const processUserMessage = async (
   }: { flowDynamic: any; state: any; provider: any }
 ) => {
   await typing(ctx, provider);
-  const response = await toAsk(ASSISTANT_ID_MEM, ctx.body, state);
+  let response: string
+  if (ctx.intention === "help") {
+    response = await toAsk(ASSISTANT_ID_HELP, ctx.body, state);
+  } else {
+    response = await toAsk(ASSISTANT_ID, ctx.body, state);
+  }
 
   // Разделяем ответ на части и отправляем их последовательно
   const chunks = response.split(/\n\n+/);
@@ -94,21 +99,15 @@ const welcomeFlow = addKeyword<BaileysProvider, IDatabase>(
 const intentionFlow = addKeyword(EVENTS.WELCOME).addAction(
   async (ctx, { gotoFlow, provider }) => {
     const intention = await getIntention(ctx.body);
-    console.log(intention);
-
+    ctx.intention = intention;
     if (intention === "greeting") {
       console.log("intention greeting");
-      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Приветствие!");
+      // await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Приветствие!");
       return gotoFlow(greetingFlow);
     } else if (intention === "sales") {
       console.log("intention sales");
-      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Продажа!");
-    // } else if (intention === "remember") {
-    //   console.log("intention remember");
-      // await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Запомни!");
     } else if (intention === "help") {
       console.log("intention help");
-      await provider.sendText(`${ctx.from}@s.whatsapp.net`, "Помощь!");
       return gotoFlow(welcomeFlow);
     } else {
       console.log("intention unknown");
